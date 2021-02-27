@@ -1,39 +1,46 @@
-/* const btnRef = document.querySelector('button'); */
-const overlayRef = document.querySelector('.overlay');
+const btns = document.querySelectorAll('button');
+const wrapper = document.querySelector('.btn-block')
 
-/* btn.onclick = function () {
-    alert('click');
-};
+/* console.log(btns[0].classList.length); */
+/* console.log(btns[0].classList.item(1)); */
+/* console.log(btns[1].classList.add('red')); */
+/* console.log(btns[0].classList.remove('blue')); */
+/* console.log(btns[0].classList.toggle('blue')); */
 
-btn.onclick = function () {
-    alert('second click');
+/* if (btns[1].classList.contains('red')) {
+    console.log('red');
 } */
 
-/* let i = 0; */
-
-const deleteElement = (e) => {
-    console.log(e.currentTarget);
-    console.log(e.type);
-    /* i += 1;
-
-    if (i === 1) {
-        btnRef.removeEventListener('click', deleteElement);
+btns[0].addEventListener('click', () => {
+    /* if (!btns[1].classList.contains('red')) {
+        btns[1].classList.add('red');
+    } else {
+        btns[1].classList.remove('red');
     } */
-};
 
-/* btnRef.addEventListener('click', deleteElement);
-overlayRef.addEventListener('click', deleteElement); */
+    btns[1].classList.toggle('red');
+});
 
-const linkRef = document.querySelector('a');
+wrapper.addEventListener('click', (event) => {
+    /* if (event.target && event.target.tagName === 'BUTTON') {
+        console.log("Hello");
+    }; */
 
-linkRef.addEventListener('click', (e) => {
-    e.preventDefault();
+    if (event.target && event.target.matches('button.red')) {
+        console.log("Hello");
+    };
 
-    console.log(e.target);
-})
+    /* if (event.target && event.target.classList.contains('blue')) {
+        console.log("Hello");
+    }; */
+});
 
-const btnsRef = document.querySelectorAll('button');
+/* btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        console.log('hello');
+    });
+}); */
 
-btnsRef.forEach(btn => {
-    btn.addEventListener('click', deleteElement, {once: true})
-})
+const btn = document.createElement('button');
+btn.classList.add('red');
+wrapper.append(btn);
