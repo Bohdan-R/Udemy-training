@@ -1,44 +1,25 @@
-/* const timerId = setTimeout(function () {
-    console.log('Hello');
-}, 2000); */
+const now = new Date('2021-02-28');
+// new Date.parse('2021-02-28'); Выдаст тот же результат
 
-const btn = document.querySelector('.btn');
-let timerId = null;
-let i = 0;
+console.log(now.setHours(40));
+console.log(now);
 
-function myAnimation() {
-    const elem = document.querySelector('.box');
-    let pos = 0;
+/* console.log(now.getFullYear());
+console.log(now.getMonth());
+console.log(now.getDate());
+console.log(now.getDay());
+console.log(now.getHours());
+console.log(now.getUTCHours());
 
-    const id = setInterval(frame, 10);
-    function frame() {
-        if (pos === 300) {
+console.log(now.getTimezoneOffset());
+console.log(now.getTime()); */
 
-        } else {
-            pos += 1;
-            elem.style.top = `${pos}px`;
-            elem.style.left = `${pos}px`;
-        }
-    }
-}
+let start = new Date();
 
-btn.addEventListener('click', myAnimation);
-
-/* btn.addEventListener('click', () => {
-    // const timerId = setTimeout(logger, 2000);
-    timerId = setInterval(logger, 2000);
-});
-
-function logger() {
-    if (i === 3) {
-        clearInterval(timerId);
-    };
-
-    console.log('text');
-    i += 1;
+for (let i = 0; i < 100000; i += 1) {
+    let some = i ** 3;
 };
 
-let id = setTimeout(function log() {
-    console.log('Hello');
-    id = setTimeout(log, 500);
-}, 500); */
+let end = new Date();
+
+alert(end - start);
