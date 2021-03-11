@@ -1,25 +1,28 @@
-const now = new Date('2021-02-28');
-// new Date.parse('2021-02-28'); Выдаст тот же результат
+'use strict';
 
-console.log(now.setHours(40));
-console.log(now);
+const boxRef = document.querySelector('.box');
+const btnRef = document.querySelector('button');
 
-/* console.log(now.getFullYear());
-console.log(now.getMonth());
-console.log(now.getDate());
-console.log(now.getDay());
-console.log(now.getHours());
-console.log(now.getUTCHours());
+/* const width = boxRef.clientWidth;
+const height = boxRef.clientHeight; */
 
-console.log(now.getTimezoneOffset());
-console.log(now.getTime()); */
+/* const width = boxRef.offsetWidth;
+const height = boxRef.offsetHeight; */
 
-let start = new Date();
+const width = boxRef.scrollWidth;
+const height = boxRef.scrollHeight;
 
-for (let i = 0; i < 100000; i += 1) {
-    let some = i ** 3;
-};
+console.log(width, height);
 
-let end = new Date();
+btnRef.addEventListener('click', () => {
+/* boxRef.style.height = `${boxRef.scrollHeight}px`; */
+    console.log(boxRef.scrollTop);
+});
 
-alert(end - start);
+console.log(boxRef.getBoundingClientRect().top);
+
+const style = window.getComputedStyle(boxRef);
+
+console.log(style.display);
+
+console.log(document.documentElement.scrollTop);
