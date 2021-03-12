@@ -1,28 +1,25 @@
 'use strict';
 
-const boxRef = document.querySelector('.box');
-const btnRef = document.querySelector('button');
+function User(name, id) {
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    this.hello = function () {
+        console.log(`Hello ${this.name}`);
+    }
+};
 
-/* const width = boxRef.clientWidth;
-const height = boxRef.clientHeight; */
+User.prototype.exit = function () {
+    console.log(`User ${this.name} exit`);
+}
 
-/* const width = boxRef.offsetWidth;
-const height = boxRef.offsetHeight; */
+const bohdan = new User('Bohdan', 25);
+const vlad = new User('Vlad', 20);
 
-const width = boxRef.scrollWidth;
-const height = boxRef.scrollHeight;
+vlad.exit();
 
-console.log(width, height);
+bohdan.hello();
+vlad.hello();
 
-btnRef.addEventListener('click', () => {
-/* boxRef.style.height = `${boxRef.scrollHeight}px`; */
-    console.log(boxRef.scrollTop);
-});
-
-console.log(boxRef.getBoundingClientRect().top);
-
-const style = window.getComputedStyle(boxRef);
-
-console.log(style.display);
-
-console.log(document.documentElement.scrollTop);
+console.log(bohdan);
+console.log(vlad);
